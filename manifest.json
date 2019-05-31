@@ -1,0 +1,43 @@
+{
+
+  "author": "Meh",
+
+  "developer": {
+    "name": "Meh",
+    "url": "https://github.com/e-meel-this/e.meel-this"
+  },
+
+  "manifest_version": 2,
+  "name": "E.Meel-This!",
+  "version": "1.0",
+  "description": "Hide all (annoying) user posts from nieuwskoerier.nl\nSome users behave like Trolls, just Troll them back by hiding their posts!",
+
+  "icons": {
+    "48": "icons/e.meel-this-48.png",
+    "96": "icons/e.meel-this-96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.nieuwskoerier.nl/*"],
+      "js": ["e.meel-this.js"]
+    }
+  ],
+  
+  "options_ui": {
+    "page": "options/options.html"
+  },
+
+  "permissions": [
+    "browsingData",
+    "notifications",
+    "storage"
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "e.meel-this@rbx.life"
+    }
+  }
+
+}
