@@ -7,7 +7,6 @@ This extension searches in userposts (reacties) # nieuwskoerier.nl for users whi
 ## Getting Started
 
 * Install [this](https://addons.mozilla.org/nl/firefox/addon/e-meel-this) FireFox plugin or:
-
 * Open FireFox
 * Enter "about:addons" in the Firefox URL bar
 * Search for addon "e.meel-this"
