@@ -16,21 +16,31 @@ This extension searches in userposts (reacties) # nieuwskoerier.nl for users whi
 
 * Enter "about:addons" in the Firefox URL bar
 * Click Options for the E.Meel-this addon
+
+![alt text](/img/about-addons.png)
+
 * Enter the usernames you want to block separated by a ,
 * Example: ```E.Meel, Kubusje```
-* Press the Button "Ignore the Annoying users!"
+* Press the Button "Ignore these Annoying users!"
+
+![alt text](/img/options.png)
+
 
 ## Running the tests
 
 * [Go to a nieuwskoerier.nl article](https://www.nieuwskoerier.nl/news/471008-john-cleese-in-opspraak-ik-heb-liever-culturen-zonder-vrouwelijke-genitale-verminking)
-* You will see a post from user E.Meel ```(if not, you probably already entered E.Meel in the options```)
-* Enter user "E.Meel" (without the quotes)
-* Press the Button "Ignore the Annoying users!"
-* [Frefresh the page](https://www.nieuwskoerier.nl/news/471008-john-cleese-in-opspraak-ik-heb-liever-culturen-zonder-vrouwelijke-genitale-verminking) ```Posts from user E.Meel are no longer visible```
+
+![alt text](/img/icon-badge.png)
+
+* Click on the E.Meel-this icon
+
+![alt text](/img/annoyed.png)
+
+* If this plugin makes you smile, please buy me a Coffee
 
 ## Authors
 
-* [**Emely Eldersson**](https://github.com/e-meel-this) - *Initial work*
+* [**Zibberzap**](https://github.com/e-meel-this) - *Initial work*
 
 ## Inspiration
 

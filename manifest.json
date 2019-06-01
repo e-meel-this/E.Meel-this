@@ -9,7 +9,7 @@
 
   "manifest_version": 2,
   "name": "E.Meel-This!",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Hide all (annoying) user posts from nieuwskoerier.nl\nSome users behave like Trolls, just Troll them back by hiding their posts!",
 
   "icons": {
@@ -46,18 +46,7 @@
     "notifications",
     "storage",
     "activeTab",
-    "browserSettings",
-    "browsingData",
-    "contextMenus",
-    "contextualIdentities",
-    "cookies",
-    "nativeMessaging",
-    "notifications",
-    "sessions",
-    "storage",
-    "tabs",
-    "webNavigation",
-    "webRequest"
+    "nativeMessaging"
   ],
 
   "applications": {
