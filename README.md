@@ -22,11 +22,11 @@ This extension searches in userposts (reacties) # nieuwskoerier.nl for users whi
 
 ## Running the tests
 
-* [Go to a nieuwskoerier.nl article](https://www.nieuwskoerier.nl/news/468819-baudets-bek-is-een-omgekeerde-wc-hij-trekt-de-klep-open-en-er-komt-stront-uit)
+* [Go to a nieuwskoerier.nl article](https://www.nieuwskoerier.nl/news/471008-john-cleese-in-opspraak-ik-heb-liever-culturen-zonder-vrouwelijke-genitale-verminking)
 * You will see a post from user E.Meel ```(if not, you probably already entered E.Meel in the options```)
 * Enter user "E.Meel" (without the quotes)
 * Press the Button "Ignore the Annoying users!"
-* [Frefresh the page](https://www.nieuwskoerier.nl/news/468819-baudets-bek-is-een-omgekeerde-wc-hij-trekt-de-klep-open-en-er-komt-stront-uit) ```Posts from user E.Meel are no longer visible```
+* [Frefresh the page](https://www.nieuwskoerier.nl/news/471008-john-cleese-in-opspraak-ik-heb-liever-culturen-zonder-vrouwelijke-genitale-verminking) ```Posts from user E.Meel are no longer visible```
 
 ## Authors
 

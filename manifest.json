@@ -24,14 +24,40 @@
     }
   ],
   
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "options_ui": {
     "page": "options/options.html"
+  },
+
+  "browser_action": {
+    "browser_style": true,    
+    "default_popup": "popup/annoying_users.html",
+    "default_icon": {
+      "16": "icons/e.meel-this-16.png",
+      "32": "icons/e.meel-this-32.png"
+    }
   },
 
   "permissions": [
     "browsingData",
     "notifications",
-    "storage"
+    "storage",
+    "activeTab",
+    "browserSettings",
+    "browsingData",
+    "contextMenus",
+    "contextualIdentities",
+    "cookies",
+    "nativeMessaging",
+    "notifications",
+    "sessions",
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest"
   ],
 
   "applications": {

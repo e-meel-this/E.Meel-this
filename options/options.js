@@ -7,8 +7,9 @@ function saveOptions(e) {
 
 function restoreOptions() {
 
-  function setCurrentChoice(result) {
-    document.querySelector("#users").value = result.users || "E.Meel";
+  function setCurrentAnnoyingUsers(result) {
+    document.querySelector("#users").value = result.users || "";
+    saveOptions();
   }
 
   function onError(error) {
@@ -16,8 +17,18 @@ function restoreOptions() {
   }
 
   var getting = browser.storage.local.get("users");
-  getting.then(setCurrentChoice, onError);
+  getting.then(setCurrentAnnoyingUsers, onError);
 }
+
+function init() {
+
+  if (localStorage.getItem('users') === null || localStorage.getItem('score') === null) {
+      browser.storage.local.set({users: '', score: []});
+  }
+ 
+}
+
+init();
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
