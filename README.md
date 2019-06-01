@@ -2,7 +2,7 @@
 
 ## A Firefox Plugin
 
-This extension searches in userposts (reacties) # nieuwskoerier.nl for users which posts you are not interested in and hides them.
+This extension searches in userposts (reacties) @ nieuwskoerier.nl for users which posts you are not interested in and hides them.
 
 ## Getting Started
 
