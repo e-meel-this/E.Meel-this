@@ -12,7 +12,7 @@ function get_annoying_users(storedSettings) {
    users = '';
    score = [];
 
-   if (storedSettings.users === null || storedSetting.score === null) {
+   if (storedSettings.users === null || storedSettings.score === null) {
        browser.storage.local.set({users: '', score: []});
    } else {
        users = storedSettings.users;
