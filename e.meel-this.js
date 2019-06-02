@@ -9,8 +9,17 @@ function onError(error) {
 // Restore Settings
 function get_annoying_users(storedSettings) {
 
-   var options_users = storedSettings.users;
-   var users = options_users.split(',');
+   users = '';
+   score = [];
+
+   if (storedSettings.users === null || storedSetting.score === null) {
+       browser.storage.local.set({users: '', score: []});
+   } else {
+       users = storedSettings.users;
+       score = storedSettings.score;
+   }
+
+   var users = users.split(',');
 
    just_ignore(users);
 }
@@ -20,8 +29,25 @@ function clear_badge_text() {
    browser.runtime.sendMessage({'cmd': 'clear'});
 }
 
+function clearRedBanner() {
+
+   var bannerDivs = document.querySelectorAll('div')
+   for(var i=0;i<bannerDivs.length;i++){
+
+      var searchfor = bannerDivs[i].innerHTML;
+      if (searchfor.includes('U blokkeert onze banners :(')) {
+         bannerDivs[i].style.display = "none";
+
+         break;
+      }
+   }   
+
+}
+
 // Find user posts and hides them
 function just_ignore(users) {
+
+   clearRedBanner();
 
    var posts_hidden = 0;   // Number of posts hidden posts / user
    var score = [];         // Number of hidden Post / user

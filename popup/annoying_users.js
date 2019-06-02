@@ -2,14 +2,6 @@ function onError(error) {
     console.log(`Error: ${error}`);
 }
 
-function init() {
-
-    if (localStorage.getItem('users') === null || localStorage.getItem('score') === null) {
-        browser.storage.local.set({users: '', score: []});
-    }
-   
-  }
-
 function createNode(ndx, user, stat, header=False) {
 
     var node = document.createElement('tr');
@@ -29,22 +21,19 @@ function UpdatePopUp(users, score) {
 // Restore Users
 function get_annoying_users(storedSettings) {
 
-    var users = storedSettings.users;
-    var users = users.split(',');
+    users = '';
+    score = [];
 
-    var score = storedSettings.score;
+    if (storedSettings.users === null || storedSettings.score === null) {
+        browser.storage.local.set({users: '', score: []});
+    } else {
+        users = storedSettings.users;
+        score = storedSettings.score;
+    }
 
+    users = users.split(',');
     UpdatePopUp(users, score);
 }
 
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(get_annoying_users, onError);
-
-function init() {
-
-    if (localStorage.getItem('users') === null || localStorage.getItem('score') === null) {
-        browser.storage.local.set({users: '', score: []});
-    }
-   
-  }
-  

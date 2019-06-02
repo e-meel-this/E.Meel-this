@@ -1,3 +1,7 @@
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
 function saveOptions(e) {
   e.preventDefault();
   browser.storage.local.set({
@@ -7,28 +11,29 @@ function saveOptions(e) {
 
 function restoreOptions() {
 
-  function setCurrentAnnoyingUsers(result) {
-    document.querySelector("#users").value = result.users || "";
-    saveOptions();
+  function setCurrentAnnoyingUsers(users) {
+    document.querySelector("#users").value = users || "";
   }
 
-  function onError(error) {
-    console.log(`Error: ${error}`);
-  }
+  function init(storedSettings) {
 
-  var getting = browser.storage.local.get("users");
-  getting.then(setCurrentAnnoyingUsers, onError);
+    var users = '';
+
+    if (storedSettings.users === null || storedSettings.score === null) {
+        browser.storage.local.set({users: '', score: []});
+    } else {
+        users = storedSettings.users;
+    }
+
+    setCurrentAnnoyingUsers(users);
+
+  }
+  
+
+  let gettingItem = browser.storage.local.get(["users", "score"]);
+  gettingItem.then(init, onError);
+
 }
-
-function init() {
-
-  if (localStorage.getItem('users') === null || localStorage.getItem('score') === null) {
-      browser.storage.local.set({users: '', score: []});
-  }
- 
-}
-
-init();
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);

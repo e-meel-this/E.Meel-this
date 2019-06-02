@@ -10,10 +10,13 @@ var views = chrome.extension.getViews({type: "popup"});
 
 function init() {
 
-  if (localStorage.getItem('users') === null || localStorage.getItem('score') === null) {
+  if (storedSettings.users === null || storedSettings.score === null) {
       browser.storage.local.set({users: '', score: []});
+  } else {
+      users = storedSettings.users;
+      score = storedSettings.score;
   }
- 
+
 }
 
 // Clear and save score
