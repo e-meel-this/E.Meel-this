@@ -1,30 +1,6 @@
 /*
- background-script.js
+    background-script.js
 */
-
-function onError(error) {
-  console.log(`Error: ${error}`);
-}
-
-var views = chrome.extension.getViews({type: "popup"});
-
-function init() {
-
-  if (storedSettings.users === null || storedSettings.score === null) {
-      browser.storage.local.set({users: '', score: []});
-  } else {
-      users = storedSettings.users;
-      score = storedSettings.score;
-  }
-
-}
-
-// Clear and save score
-function saveScore(score) {
-  browser.storage.local.set({
-    score: score
-  });
-}
 
 // Update badge text
 function badge(msg) {
@@ -32,14 +8,17 @@ function badge(msg) {
 }
 
 // Process incoming messages
-browser.runtime.onMessage.addListener(notify);
-function notify(message) {
+function notify(message, sender, sendResponse) {
 
+  const gettingStoredSettings = browser.storage.local.get();
+  gettingStoredSettings.then(get_configuration, onError);
+  
   switch(message.cmd) {
 
     case 'clear':
+        script = 'background:clear';
         badge('');
-        saveScore([])
+        configuration.score = [];
         break;
 
     case 'badge':
@@ -47,14 +26,20 @@ function notify(message) {
         break;
 
     case 'save':
-        saveScore(message.score);
+        script = 'background:save';
+        configuration.score = message.score;
+        save_configuration()
+        break;
+
+    case 'configuration':
+        sendResponse({response: configuration});
         break;
 
     default:
         console.log('Unknown cmd: ' + message.cmd);
   }
 
+
 }
 
-// Init Storage
-init();
+browser.runtime.onMessage.addListener(notify);

@@ -1,39 +1,29 @@
-function onError(error) {
-    console.log(`Error: ${error}`);
-}
+/* 
+    Annoying Users
+*/
+function restoreOptions() {
 
-function createNode(ndx, user, stat, header=False) {
+    function createNode(ndx, user, stat, header=False) {
 
-    var node = document.createElement('tr');
-    node.innerHTML = "<td>" + user + "</td><td></td><td align='right'>" + stat + "</td>";
-    return node;
-}
+        var node = document.createElement('tr');
+        node.innerHTML = "<td>" + user + "</td><td></td><td align='right'>" + stat + "</td>";
 
-// Update Popup Info
-function UpdatePopUp(users, score) {
-
-    for (var jj = 0; jj<users.length;jj++) { 
-        if ( score[jj] > 0)
-            document.getElementById("score").appendChild(createNode(jj, users[jj], score[jj], jj==0));    
+        return node;
     }
-}
-
-// Restore Users
-function get_annoying_users(storedSettings) {
-
-    users = '';
-    score = [];
-
-    if (storedSettings.users === null || storedSettings.score === null) {
-        browser.storage.local.set({users: '', score: []});
-    } else {
-        users = storedSettings.users;
-        score = storedSettings.score;
+    
+    // Update Popup Info
+    function UpdatePopUp() {
+    
+        for (var jj = 0; jj<configuration.users.length;jj++) { 
+            if ( configuration.score[jj] > 0)
+                document.getElementById("score").appendChild(createNode(jj, configuration.users[jj], configuration.score[jj], jj==0));    
+        }
     }
+    
+  
+    const gettingStoredSettings = browser.storage.local.get();
+    gettingStoredSettings.then(get_configuration, onError).then(UpdatePopUp);
+  
+  }
 
-    users = users.split(',');
-    UpdatePopUp(users, score);
-}
-
-const gettingStoredSettings = browser.storage.local.get();
-gettingStoredSettings.then(get_annoying_users, onError);
+  document.addEventListener("DOMContentLoaded", restoreOptions);
